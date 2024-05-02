@@ -1,0 +1,27 @@
+<app-default-layout>
+  <div class="container mt-3">
+    <div class="row">
+      <!-- Left Column: Book Image -->
+      <div class="col-sm-6 text-center">
+        <img
+          [src]="book.imageUrl"
+          class="img-fluid rounded"
+          alt="{{ book.title }}"
+        />
+      </div>
+
+      <!-- Right Column: Book Details -->
+      <div class="col-sm-6">
+        <h3>{{ book.title }}</h3>
+        <p><strong>Author:</strong> {{ book.author }}</p>
+        <p><strong>Description:</strong> {{ book.description }}</p>
+        <p><strong>Price:</strong> ${{ book.price }}</p>
+        <p><strong>Quantity:</strong> {{ book.quantity }}</p>
+
+        <!-- Add to Cart Button -->
+        <button mat-flat-button color="primary">Thêm vào giỏ hàng</button>
+      </div>
+    </div>
+  </div>
+  <app-comment-section [bookId]="id"></app-comment-section>
+</app-default-layout>

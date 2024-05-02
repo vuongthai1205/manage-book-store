@@ -1,0 +1,51 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+front-end-manage-bookstore/dist
+front-end-manage-bookstore/tmp
+front-end-manage-bookstore/out-tsc
+front-end-manage-bookstore/bazel-out
+
+# Node
+front-end-manage-bookstore/node_modules
+front-end-manage-bookstore/npm-debug.log
+front-end-manage-bookstore/yarn-error.log
+
+# IDEs and editors
+front-end-manage-bookstore/.idea/
+front-end-manage-bookstore/.project
+front-end-manage-bookstore/.classpath
+front-end-manage-bookstore/.c9/
+front-end-manage-bookstore/*.launch
+front-end-manage-bookstore/.settings/
+front-end-manage-bookstore/*.sublime-workspace
+
+# Visual Studio Code
+front-end-manage-bookstore/.vscode/*
+front-end-manage-bookstore/!.vscode/settings.json
+front-end-manage-bookstore/!.vscode/tasks.json
+front-end-manage-bookstore/!.vscode/launch.json
+front-end-manage-bookstore/!.vscode/extensions.json
+front-end-manage-bookstore/.history/*
+
+# Miscellaneous
+front-end-manage-bookstore/.angular/cache
+front-end-manage-bookstore/.sass-cache/
+front-end-manage-bookstore/connect.lock
+front-end-manage-bookstore/coverage
+front-end-manage-bookstore/libpeerconnection.log
+front-end-manage-bookstore/testem.log
+front-end-manage-bookstore/typings
+
+# System files
+front-end-manage-bookstore/.DS_Store
+front-end-manage-bookstore/Thumbs.db
+
+
+# Ignore Visual Studio Code folder
+.vscode/
+
+# Ignore .NET build output
+backend/bin/
+backend/obj/
+

@@ -1,0 +1,179 @@
+<div class="container-fluid">
+  <form class="example-form" #accountForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-12">
+        <p class="mt-2 text-center text-2xl">Thêm tài khoản</p>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Tên đăng nhập</mat-label>
+          <input
+            [(ngModel)]="account.username"
+            name="username"
+            matInput
+            placeholder="Nhập tên đăng nhập"
+            class="w-100"
+            required
+            #name="ngModel"
+          />
+          @if (name.errors?.['required']) {
+          <mat-error>Tên đăng nhập là  <strong>bắt buộc</strong></mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Mật khẩu</mat-label>
+          <input
+            [(ngModel)]="account.password"
+            name="password"
+            matInput
+            type="password"
+            placeholder="Nhập mật khẩu"
+            class="w-100"
+            required
+            #password="ngModel"
+          />
+          @if (password.errors?.['required']) {
+            <mat-error>Mật khẩu là  <strong>bắt buộc</strong></mat-error>
+            }
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Email</mat-label>
+          <input
+            [(ngModel)]="account.email"
+            name="email"
+            matInput
+            type="email"
+            placeholder="Nhập địa chỉ email"
+            class="w-100"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Mã Vai trò</mat-label>
+          <mat-select name="roleId" [(ngModel)]="account.roleId">
+            @for (role of roles; track role) {
+            <mat-option [value]="role.value">{{ role.viewValue }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Họ</mat-label>
+          <input
+            [(ngModel)]="account.lastName"
+            name="lastName"
+            matInput
+            placeholder="Nhập họ"
+            class="w-100"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Tên</mat-label>
+          <input
+            [(ngModel)]="account.firstName"
+            name="firstName"
+            matInput
+            placeholder="Nhập tên"
+            class="w-100"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Ngày sinh</mat-label>
+          <input
+            [(ngModel)]="account.dateOfBirth"
+            name="dateOfBirth"
+            matInput
+            [matDatepicker]="picker"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Giới tính</mat-label>
+          <input
+            [(ngModel)]="account.gender"
+            name="gender"
+            matInput
+            placeholder="Nhập giới tính"
+            class="w-100"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Địa chỉ</mat-label>
+          <input
+            [(ngModel)]="account.address"
+            name="address"
+            matInput
+            placeholder="Nhập địa chỉ"
+            class="w-100"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Số điện thoại</mat-label>
+          <input
+            [(ngModel)]="account.phoneNumber"
+            name="phoneNumber"
+            matInput
+            type="tel"
+            placeholder="Nhập số điện thoại"
+            class="w-100"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Ngôn ngữ ưa thích</mat-label>
+          <input
+            [(ngModel)]="account.languagePreference"
+            name="languagePreference"
+            matInput
+            placeholder="Nhập ngôn ngữ ưa thích"
+            class="w-100"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Hình đại diện</mat-label>
+          <input
+            [(ngModel)]="account.avatar"
+            name="avatar"
+            matInput
+            type="url"
+            placeholder="Nhập đường dẫn hình đại diện"
+            class="w-100"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <button
+          [disabled]="!accountForm.valid"
+          mat-flat-button
+          color="primary"
+          type="submit"
+        >
+          Thêm
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

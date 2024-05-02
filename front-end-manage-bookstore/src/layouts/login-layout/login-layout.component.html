@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 [className]="'title'"><a role="button" (click)="goToHomePage()">Hệ thống quản lý nhà sách, bán sách</a> </h1>
+      <form
+        [formGroup]="formAccount"
+        (ngSubmit)="submitLogin()"
+        [className]="'form-login'"
+      >
+        <mat-form-field>
+          <mat-label>Tên đăng nhập</mat-label>
+          <input matInput formControlName="username"type="text"  />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Mật khẩu</mat-label>
+          <input matInput formControlName="password" type="password" />
+        </mat-form-field>
+        <p>Chưa có tài khoản? <a class="link-signin" (click)="goToSigninPage()" style="text-decoration: underline;">Hãy đăng ký</a></p>
+        <button color="primary" type="submit" mat-raised-button>Đăng nhập</button>
+      </form>
+    </div>
+  </div>
+</div>

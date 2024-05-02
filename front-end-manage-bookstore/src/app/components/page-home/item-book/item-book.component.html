@@ -1,0 +1,32 @@
+<mat-card class="example-card" style="margin-bottom: 18px">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title
+      ><a
+        class="nav-link"
+        [routerLink]="['/book', itemBook.bookId]"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        Tên sách: {{ itemBook.title }}
+      </a>
+    </mat-card-title>
+    <mat-card-subtitle>Tác giả: {{ itemBook.author }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    alt="Photo of a Shiba Inu"
+  />
+  <mat-card-content>
+    <p>
+      Mô tả: {{ itemBook.description }}
+    </p>
+    <p>
+      Giá tiền: {{ itemBook.price }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="handleOrder()">Thêm vào giỏ hàng</button>
+  </mat-card-actions>
+</mat-card>

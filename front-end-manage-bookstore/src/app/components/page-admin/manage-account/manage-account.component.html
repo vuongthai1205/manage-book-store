@@ -1,0 +1,87 @@
+<button mat-flat-button color="accent" class="mb-3" (click)="openDialogAddAccount()">
+  Thêm tài khoản
+</button>
+<section class="example-container mat-elevation-z8" tabindex="0">
+  <table mat-table [dataSource]="account">
+    <!-- Username Column -->
+    <ng-container matColumnDef="username" sticky>
+      <th mat-header-cell *matHeaderCellDef>Tên đăng nhập</th>
+      <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+    </ng-container>
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>Tên</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.firstName }}
+      </td> </ng-container
+    ><ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Họ</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.lastName }}
+      </td> </ng-container
+    ><!-- Gender Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>Giới tính</th>
+      <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>Địa chỉ</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.address }}
+      </td> </ng-container
+    ><ng-container matColumnDef="avatar">
+      <th mat-header-cell *matHeaderCellDef>Ảnh đại diện</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.avatar }}
+      </td> </ng-container
+    ><ng-container matColumnDef="dateOfBirth">
+      <th mat-header-cell *matHeaderCellDef>Ngày sinh</th>
+      <td mat-cell *matCellDef="let element">{{ element.dateOfBirth }}</td>
+    </ng-container>
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+    <!-- Language Preference Column -->
+    <ng-container matColumnDef="languagePreference">
+      <th mat-header-cell *matHeaderCellDef>Ngôn ngữ ưa thích</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.languagePreference }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef>Số điện thoại</th>
+      <td mat-cell *matCellDef="let element">{{ element.phoneNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="roleId">
+      <th mat-header-cell *matHeaderCellDef>Mã Quyền</th>
+      <td mat-cell *matCellDef="let element">{{ element.roleId }}</td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Trạng thái</th>
+      <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+    </ng-container>
+
+    <!-- Avatar Column -->
+
+    <ng-container matColumnDef="action" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef>Hành động</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="openDialogUpdateAccount(element)">
+          <mat-icon svgIcon="edit-icon"></mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="openDialogDeleteAccount(element)">
+          <mat-icon svgIcon="delete-icon"></mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</section>

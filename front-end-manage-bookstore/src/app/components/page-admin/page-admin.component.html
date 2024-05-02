@@ -1,0 +1,30 @@
+<app-admin-layout>
+  <div class="container">
+    <div class="row">
+      <div class="col-12" style="margin: 20px 0">
+        <a routerLink="manage-account" style="margin-right: 12px">
+          <button mat-flat-button color="primary">Quản lý tài khoản</button>
+        </a>
+        <a routerLink="manage-books" style="margin-right: 12px">
+          <button mat-flat-button color="primary">Quản lý sách</button>
+        </a>
+        <a routerLink="manage-categories" style="margin-right: 12px">
+          <button mat-flat-button color="primary">Quản lý danh mục sách</button>
+        </a>
+        <a routerLink="manage-account" style="margin-right: 12px">
+          <button mat-flat-button color="primary">Quản lý đơn hàng</button>
+        </a>
+        <a routerLink="manage-account" style="margin-right: 12px">
+          <button mat-flat-button color="primary">Thống kê đơn hàng</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</app-admin-layout>

@@ -1,0 +1,15 @@
+<mat-list role="list">
+  @for (category of categories; track category) {
+  <mat-list-item role="listitem">
+    <a
+      class="nav-link"
+      [routerLink]="['/category', category.categoryId,{ name: category.name}]"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      {{ category.name }}
+    </a>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  }
+</mat-list>
