@@ -23,5 +23,10 @@ public class OrganizationProfile : Profile
 		CreateMap<OrderRequest, Order>();
 		CreateMap<OrderDetail, OrderDetailRequest>();
 		CreateMap<OrderDetailRequest, OrderDetail>();
+		CreateMap<Order, OrderResponse>();
+		CreateMap<OrderResponse, Order>();
+
+		CreateMap<StatusHistory, StatusHistoryResponse>();
+		CreateMap<StatusHistoryResponse, StatusHistory>();
 	}
 }

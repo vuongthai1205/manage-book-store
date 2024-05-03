@@ -1,0 +1,52 @@
+<div style="padding: 12px">
+  <h4>Thông tin chi tiết đặt hàng {{ data!.username }}</h4>
+
+  <p style="font-weight: 500">Chi tiết đơn hàng</p>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="bookId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Mã sách</th>
+      <td mat-cell *matCellDef="let detail">{{ detail.bookId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Số lượng</th>
+      <td mat-cell *matCellDef="let detail">{{ detail.quantity }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="unitPrice">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Đơn giá</th>
+      <td mat-cell *matCellDef="let detail">
+        {{ detail.unitPrice | currency : "VND" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ngày tạo</th>
+      <td mat-cell *matCellDef="let detail">
+        {{ detail.createAt | date : "short" }}
+      </td> </ng-container
+    >=
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [length]="dataSource.data.length"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 25, 50]"
+    showFirstLastButtons
+  ></mat-paginator>
+
+  <p style="font-weight: 500">Trạng thái của đơn hàng</p>
+  <ul>
+    <li *ngFor="let status of data?.statusHistoryResponses">
+      {{ status.orderStatus.statusName }}
+      {{ status.note ? "- " + status.note : "" }}-
+      <span style="font-size: 12px; font-style: italic;"> Ngày tạo {{ status.createAt | date : "short" }}</span>
+    </li>
+  </ul>
+
+  <p style="font-weight: 500">Tổng đơn giá</p>
+  <p>{{ data!.totalPrice | currency : "VND" }}</p>
+</div>

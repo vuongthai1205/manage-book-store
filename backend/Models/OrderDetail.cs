@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace backend;
 
@@ -34,7 +35,8 @@ public class OrderDetail
 
     // Thêm khóa ngoại đến bảng Order (DonHang)
     [ForeignKey("OrderId")]
-    public virtual required Order Order { get; set; }
+    [JsonIgnore]
+    public virtual Order? Order { get; set; }
     
     public Book? Book { get; set; }
 }

@@ -12,6 +12,7 @@ import { ManageCategoryComponent } from './components/page-admin/manage-category
 import { PageCategoryComponent } from './components/page-category/page-category.component';
 import { PageBookDetailComponent } from './components/page-book-detail/page-book-detail.component';
 import { PageOrderComponent } from './components/page-order/page-order.component';
+import { PageManageOrderComponent } from './components/page-manage-order/page-manage-order.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginLayoutComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'category/:id', component: PageCategoryComponent },
   { path: 'book/:id', component: PageBookDetailComponent },
   { path: 'order', component: PageOrderComponent },
+  { path: 'order-manage', component: PageManageOrderComponent },
   {
     path: 'admin',
     component: PageAdminComponent,

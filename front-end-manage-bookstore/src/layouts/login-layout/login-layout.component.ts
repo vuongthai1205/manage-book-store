@@ -58,7 +58,7 @@ export class LoginLayoutComponent implements OnInit {
     this.configApi.login(this.account).subscribe({
       next: (res:any) => {
         localStorage.setItem('token', res.token)
-        this.toastr.success('Login success!','Notification' );
+        this.toastr.success('Đăng nhập thành công!','Thông báo' );
         this.configApi.navigatePage();
         this.formAccount.setValue({ username: '', password: '' });
       },

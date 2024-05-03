@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Book } from '../models/book.model';
 import { Orderdetail } from '../models/orderdetail.model';
 import { Order } from '../models/order.model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../enviroments/enviroment';
 import { ToastrService } from 'ngx-toastr';
 
@@ -93,5 +93,19 @@ export class OrderService {
         console.log(err);
       },
     });
+  }
+
+  getOrderByUsername(username: string) : Observable<Order[]> {
+    return this.http.get<Order[]>(`${environment.orderApiUrl}/${username}`)
+  }
+
+  removeOrderDetail(bookId: number) {
+    const index = this.orderDetails.findIndex((detail) => detail.bookId === bookId);
+    if (index !== -1) {
+      this.orderDetails.splice(index, 1);
+      this.updateTotalPrice();
+      this.saveOrderToLocalStorage();
+      this.orderDetailsSubject.next(this.orderDetails);
+    }
   }
 }

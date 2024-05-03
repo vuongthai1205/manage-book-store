@@ -12,6 +12,7 @@ import {
 } from '../../../app/shared/icons/share-icon';
 import { OrderService } from '../../../app/services/order.service';
 import { Subscription } from 'rxjs';
+import { ConfigApiService } from '../../../app/services/config-api.service';
 
 @Component({
   selector: 'app-header',
@@ -39,6 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private orderService: OrderService,
+    private apiConfig: ConfigApiService,
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer
   ) {
@@ -62,14 +64,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
   ngOnInit(): void {
-    const userString = localStorage.getItem('user');
-    if (userString !== null) {
-      // Kiểm tra nếu giá trị không phải null trước khi parse JSON.
-      this.user = JSON.parse(userString);
-      console.log(this.user);
-    } else {
-      // Xử lý trường hợp userString là null (nếu cần thiết)
-    }
+    this.user = this.apiConfig.getCurrentUserFromLocal()
     this.orderDetailsSubscription = this.orderService.orderDetails$.subscribe(
       (details) => {
         this.orderQuantity = details.length; // Set the order quantity based on the length of orderDetails

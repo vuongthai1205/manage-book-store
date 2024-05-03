@@ -2,5 +2,5 @@
 
 public interface IStatusHistoryRepository : IRepository<StatusHistory>
 {
-
+    Task<List<StatusHistory>> GetStatusHistoryByOrderId(int orderId);
 }

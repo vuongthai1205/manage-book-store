@@ -42,6 +42,10 @@ import { MatCardModule } from '@angular/material/card';
 import { CommentSectionComponent } from '../../components/page-book-detail/comment-section/comment-section.component';
 import { PageOrderComponent } from '../../components/page-order/page-order.component';
 import { SigninLayoutComponent } from '../../../layouts/signin-layout/signin-layout.component';
+import { PageManageOrderComponent } from '../../components/page-manage-order/page-manage-order.component';
+import { OrderDetailComponent } from '../../components/page-manage-order/order-detail/order-detail.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [
     AddAccountComponent,
@@ -59,7 +63,9 @@ import { SigninLayoutComponent } from '../../../layouts/signin-layout/signin-lay
     PageCategoryComponent,
     PageBookDetailComponent,
     PageOrderComponent,
-    SigninLayoutComponent
+    SigninLayoutComponent,
+    PageManageOrderComponent,
+    OrderDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -78,6 +84,8 @@ import { SigninLayoutComponent } from '../../../layouts/signin-layout/signin-lay
     MatDialogTitle,
     MatTableModule,
     MatCardModule,
+    MatPaginatorModule,
+    MatSortModule,
 
     AdminLayoutComponent,
     DefaultLayoutComponent,
@@ -102,7 +110,9 @@ import { SigninLayoutComponent } from '../../../layouts/signin-layout/signin-lay
     PageCategoryComponent,
     PageBookDetailComponent,
     PageOrderComponent,
-    SigninLayoutComponent
+    SigninLayoutComponent,
+    PageManageOrderComponent,
+    OrderDetailComponent,
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
