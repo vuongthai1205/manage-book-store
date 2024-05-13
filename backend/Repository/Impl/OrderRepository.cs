@@ -11,6 +11,23 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
         _db = _con;
     }
 
+    public async Task<IEnumerable<Order>> GetAllOrder()
+    {
+        // Nạp toàn bộ OrderDetails
+        var orderResponse = await _db.Orders.Include(p => p.OrderDetails) // Chỉ Include thuộc tính mà không sử dụng Select bên trong
+            .ToListAsync();
+
+        if (orderResponse != null)
+        {
+
+            return orderResponse;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public async Task<List<Order>> GetOrderByUsername(string username)
     {
         // Nạp toàn bộ OrderDetails
@@ -21,11 +38,6 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
 
         if (orderResponse != null)
         {
-            // Sau khi đã nạp dữ liệu, bạn có thể truy cập hoặc tính toán giá trị cần thiết
-            foreach (var order in orderResponse)
-            {
-                var unitPrices = order.OrderDetails!.Select(od => od.UnitPrice).ToList(); // Thực hiện Select sau khi dữ liệu đã được Include
-            }
 
             return orderResponse;
         }

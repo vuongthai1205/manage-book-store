@@ -4,6 +4,7 @@
       <!-- Left Column: Book Image -->
       <div class="col-sm-6 text-center">
         <img
+        style="height: 300px; object-fit: contain;"
           [src]="book.imageUrl"
           class="img-fluid rounded"
           alt="{{ book.title }}"
@@ -12,14 +13,14 @@
 
       <!-- Right Column: Book Details -->
       <div class="col-sm-6">
-        <h3>{{ book.title }}</h3>
-        <p><strong>Author:</strong> {{ book.author }}</p>
-        <p><strong>Description:</strong> {{ book.description }}</p>
-        <p><strong>Price:</strong> ${{ book.price }}</p>
-        <p><strong>Quantity:</strong> {{ book.quantity }}</p>
+        <h3>Tên sách: {{ book.title }}</h3>
+        <p><strong>Tác giả:</strong> {{ book.author }}</p>
+        <p><strong>Mô tả:</strong> {{ book.description }}</p>
+        <p><strong>Giá tiền:</strong> ${{ book.price }}</p>
+        <p><strong>Số lượng:</strong> {{ book.quantity }}</p>
 
         <!-- Add to Cart Button -->
-        <button mat-flat-button color="primary">Thêm vào giỏ hàng</button>
+        <button mat-flat-button color="primary"  (click)="handleOrder()">Thêm vào giỏ hàng</button>
       </div>
     </div>
   </div>

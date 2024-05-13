@@ -36,6 +36,19 @@ public class OrderService : IOrderService
         return order;
     }
 
+    public async Task<IEnumerable<OrderResponse>> GetAllOrder()
+    {
+        IEnumerable<Order> order = await _orderRepository.GetAllOrder();
+        IEnumerable<OrderResponse> orderResponse = _mapper.Map<IEnumerable<OrderResponse>>(order);
+        foreach (OrderResponse response in orderResponse)
+        {
+            List<StatusHistory> statusHistory = await _statusHistoryRepository.GetStatusHistoryByOrderId(response.Id);
+            response.StatusHistoryResponses = _mapper.Map<List<StatusHistory>, List<StatusHistoryResponse>>(statusHistory);
+        }
+
+        return orderResponse;
+    }
+
     public async Task<List<OrderResponse>> GetOrderByUsername(string username)
     {
         List<Order> order = await _orderRepository.GetOrderByUsername(username);

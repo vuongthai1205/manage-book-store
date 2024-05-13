@@ -4,6 +4,8 @@ import { OrderService } from '../../services/order.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DELETE_ICON } from '../../shared/icons/share-icon';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupOrderComponent } from './popup-order/popup-order.component';
 
 @Component({
   selector: 'app-page-order',
@@ -11,7 +13,6 @@ import { DELETE_ICON } from '../../shared/icons/share-icon';
   styleUrl: './page-order.component.scss',
 })
 export class PageOrderComponent implements OnInit {
-  
   orderDetails: Orderdetail[] = [];
   displayedColumns: string[] = [
     'bookId',
@@ -25,7 +26,8 @@ export class PageOrderComponent implements OnInit {
   constructor(
     private orderService: OrderService,
     iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer
+    sanitizer: DomSanitizer,
+    private dialog: MatDialog
   ) {
     iconRegistry.addSvgIconLiteral(
       'delete-icon',
@@ -48,14 +50,23 @@ export class PageOrderComponent implements OnInit {
     }, 0);
   }
 
-  placeOrder() {
-    this.orderDetails = [];
-    this.orderService.placeOrder();
+  openPopupOrder() {
+    const dialogRef = this.dialog.open(PopupOrderComponent, {
+      height: '80vh',
+      data: { note: '' },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if (result !== undefined) {
+        this.orderDetails = [];
+        this.orderService.placeOrder(result);
+      }
+    });
   }
 
   deleteOrderByBookId(arg0: any) {
-    
-    this.orderService.removeOrderDetail(arg0)
+    this.orderService.removeOrderDetail(arg0);
     const order = this.orderService.loadOrderFromLocalStorage();
     if (order) {
       this.orderDetails = order.orderDetailRequests || [];

@@ -29,6 +29,8 @@ namespace backend
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IOrderStatusRepository, OrderStatusRepository>();
             services.AddScoped<IStatusHistoryRepository, StatusHistoryRepository>();
+            services.AddScoped<IStatusHistoryService, StatusHistoryService>();
+            services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             return services;
         }
 
@@ -40,8 +42,9 @@ namespace backend
 
             modelBuilder.EntitySet<Comment>("Comments");
             modelBuilder.EntitySet<Account>("Accounts");
+            modelBuilder.EntitySet<OrderResponse>("Orders");
             services.AddControllers().AddOData(
-                options => options.Select().Filter().OrderBy().Expand().Count().SetMaxTop(null).AddRouteComponents(
+                options => options.Select().Filter().OrderBy().Expand().Count().SetMaxTop(100).AddRouteComponents(
                     "odata",
                     modelBuilder.GetEdmModel()));
             return services;

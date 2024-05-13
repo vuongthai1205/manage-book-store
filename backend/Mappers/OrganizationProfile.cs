@@ -28,5 +28,7 @@ public class OrganizationProfile : Profile
 
 		CreateMap<StatusHistory, StatusHistoryResponse>();
 		CreateMap<StatusHistoryResponse, StatusHistory>();
+		CreateMap<StatusHistory, StatusHistoryRequest>();
+		CreateMap<StatusHistoryRequest, StatusHistory>();
 	}
 }

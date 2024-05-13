@@ -15,12 +15,25 @@ import { Book } from '../../models/book.model';
 export class PageHomeComponent implements OnInit {
   constructor(private apiBook: BooksService) {}
   book: Book[] = [];
+  bookTop4: Book[] = [];
   ngOnInit(): void {
     this.getAllBook();
+    this.getTop4Book()
   }
 
+  getTop4Book = () => {
+    this.apiBook.getTop4Book().subscribe({
+      next: (res) => {
+        this.bookTop4 = res;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  };
+
   getAllBook = () => {
-    this.apiBook.getAllBook().subscribe({
+    this.apiBook.getAllNewBook().subscribe({
       next: (res) => {
         this.book = res;
         console.log(this.book);

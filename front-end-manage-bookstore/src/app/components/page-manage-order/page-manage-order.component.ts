@@ -28,6 +28,9 @@ export class PageManageOrderComponent implements OnInit {
     this.user = apiConfig.getCurrentUserFromLocal()
   }
   ngOnInit(): void {
+    this.loadOrderByUsername()
+  }
+  loadOrderByUsername(){
     this.orderService.getOrderByUsername(this.user.username).subscribe({
       next: (res: any) => {
         this.orderList = res;

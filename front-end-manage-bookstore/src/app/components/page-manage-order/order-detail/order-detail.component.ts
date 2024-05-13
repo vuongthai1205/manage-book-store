@@ -9,10 +9,10 @@ import { Orderdetail } from '../../../models/orderdetail.model';
 @Component({
   selector: 'app-order-detail',
   templateUrl: './order-detail.component.html',
-  styleUrl: './order-detail.component.scss'
+  styleUrl: './order-detail.component.scss',
 })
 export class OrderDetailComponent implements OnInit {
-  displayedColumns: string[] = ['bookId', 'quantity', 'unitPrice', 'createAt' ];
+  displayedColumns: string[] = ['bookId', 'quantity', 'unitPrice', 'createAt'];
   dataSource = new MatTableDataSource<Orderdetail>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -22,6 +22,9 @@ export class OrderDetailComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     console.log(this.data);
+    this.loadOrderDetail();
+  }
+  loadOrderDetail() {
     if (this.data) {
       const orderDetails = this.data.orderDetails || []; // Ensure it's an array, even if empty
       this.dataSource.data = orderDetails;

@@ -17,6 +17,6 @@ export class CommentService {
   }
 
   public getCommentByBookId = (bookId : number) : Observable<Comment[]> => {
-    return this.httpClient.get<Comment[]>(`${environment.commentApiUrl}/idBook/${bookId}`)
+    return this.httpClient.get<Comment[]>(`${environment.commentApiUrl}/idBook/${bookId}?$orderBy=CreateAt desc`)
   }
 }

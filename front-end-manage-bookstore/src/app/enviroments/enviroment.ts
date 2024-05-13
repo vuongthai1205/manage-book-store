@@ -6,5 +6,6 @@ export const environment = {
     categoryApiUrl: 'http://localhost:5118/api/Category',
     commentApiUrl: 'http://localhost:5118/api/Comment',
     orderApiUrl: 'http://localhost:5118/api/Order',
+    statusHistoryApiUrl: 'http://localhost:5118/api/StatusHistory',
 };
 

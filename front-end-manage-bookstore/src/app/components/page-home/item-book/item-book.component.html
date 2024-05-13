@@ -11,22 +11,34 @@
         Tên sách: {{ itemBook.title }}
       </a>
     </mat-card-title>
-    <mat-card-subtitle>Tác giả: {{ itemBook.author }}</mat-card-subtitle>
+    <mat-card-subtitle style="margin-bottom: 8px"
+      >Tác giả: {{ itemBook.author }}</mat-card-subtitle
+    >
   </mat-card-header>
   <img
     mat-card-image
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    style="height: 300px; object-fit: cover"
+    [src]="itemBook.imageUrl"
     alt="Photo of a Shiba Inu"
   />
   <mat-card-content>
-    <p>
-      Mô tả: {{ itemBook.description }}
+    <p
+      style="
+        height: 48px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 0;
+      "
+    >
+      <strong>Mô tả:</strong>  {{ itemBook.description }}
     </p>
-    <p>
-      Giá tiền: {{ itemBook.price}}
-    </p>
+    <p> <strong>Giá tiền:</strong> {{ itemBook.price }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-flat-button color="primary" (click)="handleOrder()">Thêm vào giỏ hàng</button>
+    <button mat-flat-button color="primary" (click)="handleOrder()">
+      Thêm vào giỏ hàng
+    </button>
   </mat-card-actions>
 </mat-card>

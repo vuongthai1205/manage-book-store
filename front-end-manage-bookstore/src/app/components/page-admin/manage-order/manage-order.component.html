@@ -1,0 +1,43 @@
+<section class="example-container mat-elevation-z8" tabindex="0">
+  <table mat-table [dataSource]="orders">
+    <!-- Username Column -->
+    <ng-container matColumnDef="id" sticky>
+      <th mat-header-cell *matHeaderCellDef>Mã đơn hàng</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="username" sticky>
+      <th mat-header-cell *matHeaderCellDef>Tên đăng nhập</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.username }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="note" sticky>
+      <th mat-header-cell *matHeaderCellDef>Ghi chú</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.note }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="totalPrice" sticky>
+      <th mat-header-cell *matHeaderCellDef>Tổng tiền</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.totalPrice | currency : "VND" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action" sticky>
+      <th mat-header-cell *matHeaderCellDef>Hành Động</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="openDialogUpdateOrder(element)"
+        >
+          <mat-icon svgIcon="edit-icon"></mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</section>

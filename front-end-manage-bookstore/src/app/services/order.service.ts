@@ -7,6 +7,7 @@ import { Order } from '../models/order.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../enviroments/enviroment';
 import { ToastrService } from 'ngx-toastr';
+import { StatusHistory } from '../models/statusHistory.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,7 @@ export class OrderService {
     orderDetailRequests: this.orderDetails,
     username: '',
     totalPrice: 0,
+    note: ""
   };
   user: any;
   constructor(private http: HttpClient, private router: Router, private toastService: ToastrService) {
@@ -76,8 +78,9 @@ export class OrderService {
     return null; // Return null if no order is found
   }
 
-  placeOrder() {
+  placeOrder(note : string) {
     // You can implement your order placement logic here
+    this.order.note = note
     console.log('Order placed:', this.order);
     this.http.post(`${environment.orderApiUrl}`, this.order).subscribe({
       next: (res: any) => {
@@ -96,7 +99,14 @@ export class OrderService {
   }
 
   getOrderByUsername(username: string) : Observable<Order[]> {
-    return this.http.get<Order[]>(`${environment.orderApiUrl}/${username}`)
+    return this.http.get<Order[]>(`${environment.orderApiUrl}/${username}?$orderby=CreateAt desc`)
+  }
+  getAllOrder() : Observable<Order[]> {
+    return this.http.get<Order[]>(`${environment.orderApiUrl}?$orderby=CreateAt desc`)
+  }
+
+  updateStatusHistory(statusHistory : StatusHistory) : Observable<StatusHistory> {
+    return this.http.post<StatusHistory>(`${environment.statusHistoryApiUrl}`, statusHistory)
   }
 
   removeOrderDetail(bookId: number) {

@@ -34,14 +34,14 @@
   <mat-paginator
     [length]="dataSource.data.length"
     [pageSize]="5"
-    [pageSizeOptions]="[5, 10, 25, 50]"
+    [hidePageSize]="true"
     showFirstLastButtons
   ></mat-paginator>
 
   <p style="font-weight: 500">Trạng thái của đơn hàng</p>
   <ul>
     <li *ngFor="let status of data?.statusHistoryResponses">
-      {{ status.orderStatus.statusName }}
+      {{ status.orderStatus?.statusName }}
       {{ status.note ? "- " + status.note : "" }}-
       <span style="font-size: 12px; font-style: italic;"> Ngày tạo {{ status.createAt | date : "short" }}</span>
     </li>

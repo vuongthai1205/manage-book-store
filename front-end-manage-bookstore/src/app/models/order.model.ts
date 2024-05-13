@@ -8,4 +8,7 @@ export class Order {
     orderDetailRequests?: Orderdetail[];
     orderDetails?: Orderdetail[];
     statusHistoryResponses?: StatusHistory[];
+    createAt?:Date;
+    updateAt?:Date;
+    note?: string;
 }

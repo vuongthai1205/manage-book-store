@@ -1,0 +1,96 @@
+<div style="padding: 12px">
+  <h4>Thông tin chi tiết đặt hàng {{ data!.username }}</h4>
+
+  <p style="font-weight: 500">Chi tiết đơn hàng</p>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="bookId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Mã sách</th>
+      <td mat-cell *matCellDef="let detail">{{ detail.bookId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Số lượng</th>
+      <td mat-cell *matCellDef="let detail">{{ detail.quantity }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="unitPrice">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Đơn giá</th>
+      <td mat-cell *matCellDef="let detail">
+        {{ detail.unitPrice | currency : "VND" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ngày tạo</th>
+      <td mat-cell *matCellDef="let detail">
+        {{ detail.createAt | date : "short" }}
+      </td> </ng-container
+    >=
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [length]="dataSource.data.length"
+    [pageSize]="5"
+    [hidePageSize]="true"
+    showFirstLastButtons
+  ></mat-paginator>
+
+  <p style="font-weight: 500">Trạng thái của đơn hàng</p>
+  <ul>
+    <li *ngFor="let status of data?.statusHistoryResponses">
+      {{ status.orderStatus?.statusName }}
+      {{ status.note ? "- " + status.note : "" }}-
+      <span style="font-size: 12px; font-style: italic">
+        Ngày tạo {{ status.createAt | date : "short" }}</span
+      >
+    </li>
+  </ul>
+
+  <p style="font-weight: 500">Tổng đơn giá</p>
+  <p>{{ data!.totalPrice | currency : "VND" }}</p>
+  <div class="row">
+    <div class="col-12">
+      <p style="font-weight: 500">Cập nhật trạng thái đơn hàng</p>
+      <hr />
+      <form #statusHistoryForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-12">
+            <mat-form-field style="width: 100%;">
+              <mat-label>Note</mat-label>
+              <input 
+                [disabled]="checkValid()"
+                type="text"
+                matInput
+                placeholder="Có thể nhập ghi chú ..."
+                [(ngModel)]="statusHistory.note"
+                name="note"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <mat-form-field style="width: 100%;">
+              <mat-label>Trạng thái đơn hàng</mat-label>
+              <mat-select [disabled]="checkValid()" name="orderStatusId" [(ngModel)]="statusHistory.orderStatusId">
+                @for (statusHistory of statusHistories; track statusHistory) {
+                <mat-option [value]="statusHistory.value">{{
+                  statusHistory.viewValue
+                }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" [disabled]="checkValid()" mat-flat-button color="primary">Cập nhật</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

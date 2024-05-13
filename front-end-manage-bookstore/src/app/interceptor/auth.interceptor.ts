@@ -6,13 +6,14 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private toast: ToastrService) {}
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
@@ -27,6 +28,7 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((error: any) => {
         if (error instanceof HttpErrorResponse && error.status === 401) {
           this.router.navigate(['/login']);
+          this.toast.error('Vui lòng đăng nhập để thực hiện chức năng','Thông báo' );
         }
         return throwError(error);
       })

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from '../enviroments/enviroment';
 import { Book } from '../models/book.model';
+import { Search } from '../models/search.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,18 @@ export class BooksService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   public getAllBook = (): Observable<Book[]> => {
-    return this.httpClient.get<Book[]>(`${environment.bookApiUrl}`);
+    return this.httpClient.get<Book[]>(`${environment.bookApiUrl}?$orderBy=CreateAt desc`);
+  };
+
+  public getAllBookWithSearch = (searchInput : Search): Observable<Book[]> => {
+    return this.httpClient.get<Book[]>(`${environment.bookApiUrl}?$filter=contains(tolower(${searchInput.filterWith}), tolower('${searchInput.content}'))`);
+  };
+  public getTop4Book = (): Observable<Book[]> => {
+    return this.httpClient.get<Book[]>(`${environment.bookApiUrl}?$orderBy=Quantity asc&$top=4`);
+  };
+
+  public getAllNewBook = (): Observable<Book[]> => {
+    return this.httpClient.get<Book[]>(`${environment.bookApiUrl}?$orderBy=CreateAt desc&$top=4`);
   };
 
   public getAllBookFilterCategory = (id?: number): Observable<Book[]> => {

@@ -46,6 +46,10 @@ import { PageManageOrderComponent } from '../../components/page-manage-order/pag
 import { OrderDetailComponent } from '../../components/page-manage-order/order-detail/order-detail.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { ManageOrderComponent } from '../../components/page-admin/manage-order/manage-order.component';
+import { UpdateOrderComponent } from '../../components/page-admin/manage-order/update-order/update-order.component';
+import { PopupOrderComponent } from '../../components/page-order/popup-order/popup-order.component';
+import { PageBookComponent } from '../../components/page-book/page-book.component';
 @NgModule({
   declarations: [
     AddAccountComponent,
@@ -66,6 +70,10 @@ import { MatSortModule } from '@angular/material/sort';
     SigninLayoutComponent,
     PageManageOrderComponent,
     OrderDetailComponent,
+    ManageOrderComponent,
+    UpdateOrderComponent,
+    PopupOrderComponent,
+    PageBookComponent
   ],
   imports: [
     CommonModule,
@@ -113,6 +121,10 @@ import { MatSortModule } from '@angular/material/sort';
     SigninLayoutComponent,
     PageManageOrderComponent,
     OrderDetailComponent,
+    ManageOrderComponent,
+    UpdateOrderComponent,
+    PopupOrderComponent,
+    PageBookComponent
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },

@@ -13,29 +13,37 @@ import { PageCategoryComponent } from './components/page-category/page-category.
 import { PageBookDetailComponent } from './components/page-book-detail/page-book-detail.component';
 import { PageOrderComponent } from './components/page-order/page-order.component';
 import { PageManageOrderComponent } from './components/page-manage-order/page-manage-order.component';
+import { ManageOrderComponent } from './components/page-admin/manage-order/manage-order.component';
+import { PageBookComponent } from './components/page-book/page-book.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginLayoutComponent },
   { path: 'signin', component: SigninLayoutComponent },
   { path: 'category/:id', component: PageCategoryComponent },
   { path: 'book/:id', component: PageBookDetailComponent },
-  { path: 'order', component: PageOrderComponent },
-  { path: 'order-manage', component: PageManageOrderComponent },
+  { path: 'order',canActivate: [authGuard], component: PageOrderComponent },
+  { path: 'order-manage',canActivate: [authGuard], component: PageManageOrderComponent },
   {
     path: 'admin',
     component: PageAdminComponent,
     data: { title: 'Admin' },
-    canActivate: [authGuard, authAdminGuard],
+    canActivate: [authAdminGuard],
     children: [
       {path: 'manage-account', component: ManageAccountComponent},
       {path: 'manage-books', component : ManageBookComponent},
-      {path: 'manage-categories', component : ManageCategoryComponent}
+      {path: 'manage-categories', component : ManageCategoryComponent},
+      {path: 'manage-order', component : ManageOrderComponent},
     ]
   },
   {
     path: 'home',
     component: PageHomeComponent,
     data: { title: 'Home' }
+  },
+  {
+    path: 'books',
+    component: PageBookComponent,
+    data: { title: 'Book' }
   },
   { path: '',
     redirectTo: '/home',

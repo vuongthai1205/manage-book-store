@@ -1,0 +1,29 @@
+<div style="padding: 12px; display: flex;flex-direction: column; height: 100%;">
+  <h4>Xác nhận thông tin Đặt hàng</h4>
+
+  <div>
+    <h5>Vui lòng chuyển khoản vào tài khoản Ngân hàng</h5>
+    <p>Ngân hàng: Vietcombank</p>
+    <p>Số tài khoản: 123456789</p>
+    <p>Chủ tài khoản: Nguyễn Văn A</p>
+  </div>
+
+  <form #orderForm="ngForm" style="margin-top: auto;">
+    <p style="font-size: 13px;">Nhập thêm thông tin nếu cần</p>
+    <mat-form-field style="width: 100%;"  appearance="outline">
+      <mat-label>Ghi chú</mat-label>
+      <textarea matInput [(ngModel)]="data.note" name="note"></textarea>
+    </mat-form-field>
+    <div>
+      <button mat-button (click)="onCancel()">Hủy bỏ</button>
+      <button
+        mat-raised-button
+        [mat-dialog-close]="data.note"
+        color="primary"
+        cdkFocusInitial
+      >
+        Đặt hàng
+      </button>
+    </div>
+  </form>
+</div>

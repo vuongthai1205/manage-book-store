@@ -59,7 +59,7 @@ export class ConfigApiService {
       // Kiểm tra nếu giá trị không phải null trước khi parse JSON.
       return JSON.parse(userString);
     } else {
-      this.router.navigate(['login']);
+      
     }
   };
 

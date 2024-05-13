@@ -96,6 +96,80 @@ namespace backend.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("TaiKhoan");
+
+                    b.HasData(
+                        new
+                        {
+                            Username = "vuongthai",
+                            Address = "Hà Nội",
+                            Avatar = "https://example.com/avatar1.jpg",
+                            CreatedAt = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "vuongthai@example.com",
+                            FirstName = "Nguyễn",
+                            Gender = "Nam",
+                            LanguagePreference = "Tiếng Việt",
+                            LastName = "Văn A",
+                            Password = "$2a$13$6BjHaarncKGYIgYiBmcg8OVbItdMJuyiXjmuCokUpitoUjbBVvCFy",
+                            PhoneNumber = "0123456789",
+                            RoleId = 1,
+                            Status = "1",
+                            UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Username = "user2",
+                            Address = "TP. Hồ Chí Minh",
+                            Avatar = "https://example.com/avatar2.jpg",
+                            CreatedAt = new DateTime(2022, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateTime(1992, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "user2@example.com",
+                            FirstName = "Trần",
+                            Gender = "Nữ",
+                            LanguagePreference = "Tiếng Anh",
+                            LastName = "Thị B",
+                            Password = "$2a$13$6BjHaarncKGYIgYiBmcg8OVbItdMJuyiXjmuCokUpitoUjbBVvCFy",
+                            PhoneNumber = "0987654321",
+                            RoleId = 2,
+                            Status = "1",
+                            UpdatedAt = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Username = "user3",
+                            Address = "Đà Nẵng",
+                            Avatar = "https://example.com/avatar3.jpg",
+                            CreatedAt = new DateTime(2022, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateTime(1994, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "user3@example.com",
+                            FirstName = "Phạm",
+                            Gender = "Nam",
+                            LanguagePreference = "Tiếng Việt",
+                            LastName = "Văn C",
+                            Password = "$2a$13$6BjHaarncKGYIgYiBmcg8OVbItdMJuyiXjmuCokUpitoUjbBVvCFy",
+                            PhoneNumber = "0777666555",
+                            RoleId = 2,
+                            Status = "1",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Username = "staff",
+                            Address = "Đà Nẵng",
+                            Avatar = "https://example.com/avatar3.jpg",
+                            CreatedAt = new DateTime(2022, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateTime(1994, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "staff@example.com",
+                            FirstName = "Phạm",
+                            Gender = "Nam",
+                            LanguagePreference = "Tiếng Việt",
+                            LastName = "Văn C",
+                            Password = "$2a$13$6BjHaarncKGYIgYiBmcg8OVbItdMJuyiXjmuCokUpitoUjbBVvCFy",
+                            PhoneNumber = "0777666555",
+                            RoleId = 3,
+                            Status = "1",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("backend.Book", b =>
@@ -154,6 +228,138 @@ namespace backend.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Sach");
+
+                    b.HasData(
+                        new
+                        {
+                            BookId = 1,
+                            Author = "Nguyễn Văn A",
+                            CategoryId = 1,
+                            CreateAt = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Sách hướng dẫn lập trình C# từ cơ bản đến nâng cao.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 29000m,
+                            Quantity = 50,
+                            Title = "Sách Lập trình C#",
+                            UpdateAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookId = 2,
+                            Author = "Trần Văn B",
+                            CategoryId = 2,
+                            CreateAt = new DateTime(2022, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Sách hướng dẫn lập trình Java cho người mới bắt đầu.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 35000m,
+                            Quantity = 30,
+                            Title = "Sách Lập trình Java",
+                            UpdateAt = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookId = 3,
+                            Author = "Lê Thị C",
+                            CategoryId = 3,
+                            CreateAt = new DateTime(2022, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Hướng dẫn lập trình Python nâng cao.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 39000m,
+                            Quantity = 25,
+                            Title = "Sách Lập trình Python",
+                            UpdateAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookId = 4,
+                            Author = "Phạm Văn D",
+                            CategoryId = 4,
+                            CreateAt = new DateTime(2022, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Lập trình JavaScript cơ bản.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 24000m,
+                            Quantity = 40,
+                            Title = "Sách Lập trình JavaScript",
+                            UpdateAt = new DateTime(2023, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookId = 5,
+                            Author = "Hoàng Thị E",
+                            CategoryId = 5,
+                            CreateAt = new DateTime(2022, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Ruby cơ bản và nâng cao.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 42000m,
+                            Quantity = 35,
+                            Title = "Sách Lập trình Ruby",
+                            UpdateAt = new DateTime(2023, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookId = 6,
+                            Author = "Đặng Văn F",
+                            CategoryId = 6,
+                            CreateAt = new DateTime(2022, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "PHP từ cơ bản đến nâng cao.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 37000m,
+                            Quantity = 20,
+                            Title = "Sách Lập trình PHP",
+                            UpdateAt = new DateTime(2023, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookId = 7,
+                            Author = "Nguyễn Văn G",
+                            CategoryId = 7,
+                            CreateAt = new DateTime(2022, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Học lập trình Swift.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 45000m,
+                            Quantity = 25,
+                            Title = "Sách Lập trình Swift",
+                            UpdateAt = new DateTime(2023, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookId = 8,
+                            Author = "Nguyễn Thị H",
+                            CategoryId = 8,
+                            CreateAt = new DateTime(2022, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Lập trình Kotlin từ A đến Z.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 33000m,
+                            Quantity = 30,
+                            Title = "Sách Lập trình Kotlin",
+                            UpdateAt = new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookId = 9,
+                            Author = "Lê Văn I",
+                            CategoryId = 9,
+                            CreateAt = new DateTime(2022, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Objective-C cơ bản và nâng cao.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 39000m,
+                            Quantity = 15,
+                            Title = "Sách Lập trình Objective-C",
+                            UpdateAt = new DateTime(2023, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookId = 10,
+                            Author = "Trần Văn J",
+                            CategoryId = 10,
+                            CreateAt = new DateTime(2022, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "R cho dữ liệu.",
+                            ImageUrl = "https://images.pexels.com/photos/3643828/pexels-photo-3643828.jpeg?cs=srgb&dl=pexels-ena-marinkovic-1814213-3643828.jpg&fm=jpg",
+                            Price = 29000m,
+                            Quantity = 20,
+                            Title = "Sách Lập trình R",
+                            UpdateAt = new DateTime(2023, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("backend.Category", b =>
@@ -185,6 +391,78 @@ namespace backend.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("DanhMuc");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CreateAt = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình C#",
+                            UpdateAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CreateAt = new DateTime(2022, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình Java",
+                            UpdateAt = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CreateAt = new DateTime(2022, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình Python",
+                            UpdateAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CreateAt = new DateTime(2022, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình JavaScript",
+                            UpdateAt = new DateTime(2023, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CreateAt = new DateTime(2022, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình Ruby",
+                            UpdateAt = new DateTime(2023, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CreateAt = new DateTime(2022, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình PHP",
+                            UpdateAt = new DateTime(2023, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CreateAt = new DateTime(2022, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình Swift",
+                            UpdateAt = new DateTime(2023, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CreateAt = new DateTime(2022, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình Kotlin",
+                            UpdateAt = new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = 9,
+                            CreateAt = new DateTime(2022, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình Objective-C",
+                            UpdateAt = new DateTime(2023, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CategoryId = 10,
+                            CreateAt = new DateTime(2022, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lập trình R",
+                            UpdateAt = new DateTime(2023, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("backend.Comment", b =>
@@ -251,6 +529,10 @@ namespace backend.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("TaoLuc")
                         .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("GhiChu");
 
                     b.Property<double>("TotalPrice")
                         .HasColumnType("float")

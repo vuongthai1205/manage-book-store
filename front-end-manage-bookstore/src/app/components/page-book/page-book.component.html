@@ -1,0 +1,37 @@
+<app-default-layout>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3>Danh sách tất các sách của nhà sách</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <form style="display: flex; align-items: center;" #searchForm="ngForm" (ngSubmit)="onSearchSubmit()">
+          <mat-form-field style="flex: 1;">
+            <mat-label>Nhập nội dung tìm kiếm</mat-label>
+            <input matInput [(ngModel)]="searchInput.content" name="content" required />
+          </mat-form-field>
+          <button
+            [disabled]="!searchForm.valid"
+            mat-flat-button
+            color="primary"
+            style="margin: 0 12px;"
+            type="submit"
+          >
+            Tìm kiếm
+          </button>
+          <mat-form-field>
+            <mat-label>Tìm kiếm theo</mat-label>
+            <mat-select [(ngModel)]="searchInput.filterWith" name="filterWith">
+              <mat-option value="title">Tên sách</mat-option>
+              <mat-option value="author">Tác giả</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <app-list-book [book]="book"></app-list-book>
+</app-default-layout>

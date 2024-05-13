@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 
@@ -16,6 +17,7 @@ public class CommentController : ControllerBase{
         return await commentService.GetAllComment();
     }
     [HttpPost]
+    [Authorize]
     public async Task<Comment> CreateComment([FromBody] CommentRequest commentRequest){
         return await commentService.AddComment(commentRequest);
     }
@@ -25,14 +27,17 @@ public class CommentController : ControllerBase{
     }
 
     [HttpGet("idBook/{id}")]
+    [EnableQuery]
     public async Task<IEnumerable<Comment>> GetCommentByIdBook(int id ){
         return await commentService.GetAllCommentWithBookId(id);
     }
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<Comment> UpdateComment(int id, [FromBody] CommentRequest commentRequest ){
         return await commentService.UpdateComment(id, commentRequest);
     }
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> DeleteComment(int id){
         var isDelete = await commentService.DeleteComment(id);
         if(isDelete)    
